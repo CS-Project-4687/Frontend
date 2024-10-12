@@ -101,5 +101,9 @@ function req(){
         timetableBox.appendChild(buttonsContainer);
         timetableContainer.appendChild(timetableBox);
         document.getElementById("mainContainer").appendChild(timetableContainer);
+        discard.addEventListener('click', function(){
+            timetableContainer.remove();
+        }
+        );
     });
 }
