@@ -30,7 +30,7 @@ clickableDiv.addEventListener('click', function (event) {
         textBox.focus();
     }
 });
-
+let timetableData;
 function req(){
     fetch('http://127.0.0.1:5000/generate', {
         method: 'POST',
@@ -39,7 +39,7 @@ function req(){
         },
         body: JSON.stringify({prompt: textBox.value})
     }).then(response => response.json()).then(data => {
-        console.log(data);
+        timetableData = data;
         try{
         document.querySelector(".timetableContainer").remove();
         } catch {
@@ -56,6 +56,7 @@ function req(){
         task.classList.add('task');
         let cell = document.createElement('div');
         cell.classList.add('cell');
+        cell.classList.add('titleCell');
         cell.style.marginLeft = '2px';
         cell.innerHTML = 'Task';
         task.appendChild(cell);
@@ -72,6 +73,7 @@ function req(){
         let cell2 = document.createElement('div');
         cell2.classList.add('cell');
         cell2.style.marginLeft = '2px';
+        cell2.classList.add('titleCell');
         cell2.innerHTML = 'Time Slot';
         timeSlot.appendChild(cell2);
 
@@ -103,7 +105,21 @@ function req(){
         document.getElementById("mainContainer").appendChild(timetableContainer);
         discard.addEventListener('click', function(){
             timetableContainer.remove();
-        }
-        );
+        });
+        save.addEventListener('click', function(e){
+          e.preventDefault();
+          saveTT();
+          return false;
+        });
     });
+}
+
+function saveTT(){
+  fetch('http://127.0.0.1:5000/save', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({date: new Date().toDateString(), timetable: timetableData.result})
+  }).then(response => {return response.json()}).catch(err => console.log(err));
 }
