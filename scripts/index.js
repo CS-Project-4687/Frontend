@@ -32,6 +32,10 @@ clickableDiv.addEventListener('click', function (event) {
 });
 let timetableData;
 function req(){
+  let loading = document.createElement('div');
+  loading.classList.add('timetableContainer');
+  loading.innerHTML = '<img src="./assets/loading.svg">'
+  document.getElementById("mainContainer").appendChild(loading);
     fetch('http://127.0.0.1:5000/generate', {
         method: 'POST',
         headers: {
@@ -115,6 +119,11 @@ function req(){
 }
 
 function saveTT(){
+  document.querySelector('.timetableContainer').remove()
+  let loading = document.createElement('div');
+  loading.classList.add('timetableContainer');
+  document.getElementById("mainContainer").appendChild(loading);
+  loading.innerHTML = '<img src="./assets/loading.svg">'
   fetch('http://127.0.0.1:5000/save', {
     method: 'POST',
     headers: {
@@ -122,4 +131,16 @@ function saveTT(){
     },
     body: JSON.stringify({date: new Date().toDateString(), timetable: timetableData.result})
   }).then(response => {return response.json()}).catch(err => console.log(err));
+  loading.innerHTML = '<div id="lottie-animation" style="height: 15rem; width: auto; margin-bottom: 10rem;"></div>'
+  loading.style.marginBottom = '20rem'
+  var animation = lottie.loadAnimation({
+    container: document.getElementById('lottie-animation'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'https://lottie.host/ec80a6af-f622-4e3d-b20a-82dd831b7abb/HBHLDGIw59.json'
+  });
+  setTimeout(() => {
+    loading.remove()
+  }, 2000);
 }
