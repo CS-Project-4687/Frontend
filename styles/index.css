@@ -1,12 +1,63 @@
-body{
-    margin: 0;
-    background-color: #4c4f69;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+@font-face {
+    font-family: 'SF UI Display Ultralight';
+    font-style: normal;
+    font-weight: normal;
+    src: local('SF UI Display Ultralight'), url('../assets/fonts/sf-ui-display-ultralight-58646b19bf205.woff') format('woff');
 }
-.clickable{
+@font-face {
+    font-family: 'SF UI Display Thin';
+    font-style: normal;
+    font-weight: normal;
+    src: local('SF UI Display Thin'), url('../assets/fonts/sf-ui-display-thin-58646e9b26e8b.woff') format('woff');
+}
+@font-face {
+    font-family: 'SF UI Display Light';
+    font-style: normal;
+    font-weight: normal;
+    src: local('SF UI Display Light'), url('../assets/fonts/sf-ui-display-light-58646b33e0551.woff') format('woff');
+}
+@font-face {
+    font-family: 'SF UI Display Medium';
+    font-style: normal;
+    font-weight: normal;
+    src: local('SF UI Display Medium'), url('../assets/fonts/sf-ui-display-medium-58646be638f96.woff') format('woff');
+}
+@font-face {
+    font-family: 'SF UI Display Semibold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('SF UI Display Semibold'), url('../assets/fonts/sf-ui-display-semibold-58646eddcae92.woff') format('woff');
+}
+@font-face {
+    font-family: 'SF UI Display Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('SF UI Display Bold'), url('../assets/fonts/sf-ui-display-bold-58646a511e3d9.woff') format('woff');
+}
+@font-face {
+    font-family: 'SF UI Display Heavy';
+    font-style: normal;
+    font-weight: normal;
+    src: local('SF UI Display Heavy'), url('../assets/fonts/sf-ui-display-heavy-586470160b9e5.woff') format('woff');
+}
+@font-face {
+    font-family: 'SF UI Display Black';
+    font-style: normal;
+    font-weight: normal;
+    src: local('SF UI Display Black'), url('../assets/fonts/sf-ui-display-black-58646a6b80d5a.woff') format('woff');
+}
+
+body {
+    margin: 0;
+    background-color: #d8dee9;
+    font-family: 'SF UI Display Black';
+}
+
+.clickable {
     cursor: pointer;
 }
-.mainContainer{
+
+.mainContainer {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -14,27 +65,31 @@ body{
     align-items: center;
     justify-content: space-between;
 }
-.promptBoxContainer{
+
+.promptBoxContainer {
     width: 100%;
     min-height: 50vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.promptBox{
+
+.promptBox {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-    width: 40vw;
-    height: 6vh;
+    width: 45rem;
+    height: 3rem;
     padding: 1rem;
     border-radius: 1rem;
-    background-color: #c6d0f5;
+    background-color: #eceff4;
 }
-.inputContainer{
+
+.inputContainer {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.inputContainer input{
+
+.inputContainer input {
     width: 90%;
     height: 100%;
     border: none;
@@ -42,17 +97,26 @@ body{
     font-size: 1.4rem;
     background-color: transparent;
 }
-.sendButton{
+
+.sendButton {
     border: none;
     border-radius: 1rem;
     height: 3rem;
     width: 3rem;
+    background-color: #c1c9d7;
+    transition-duration: 300ms;
 }
-.sendButton img{
+
+.sendButton:hover{
+    background-color: #a5b1c2;
+}
+
+.sendButton img {
     width: 80%;
     height: 80%;
 }
-.timetableContainer{
+
+.timetableContainer {
     scale: 0;
     opacity: 0;
     width: 100%;
@@ -69,72 +133,113 @@ body{
         scale: 0;
         opacity: 0;
     }
+
     100% {
         scale: 1;
         opacity: 1;
     }
 }
 
-.timetableBox{
+.timetableBox {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-    width: 50vw;
+    width: 50rem;
     height: auto;
     padding: 1rem;
     border-radius: 1rem;
-    background-color: #c6d0f5;
+    background-color: #eceff4;
     padding-bottom: 0;
     margin-bottom: 1rem;
+    margin-top: -6rem;
 }
-.task{
+
+.task {
     width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-.timeSlot{
+
+.timeSlot {
     width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-.cell{
+
+.cell {
     width: 100%;
     height: 5vh;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid #4c4f69;
+    font-family: 'SF UI Display Medium';
 }
-.timeSlots{
+.titleCell{
+    font-family: 'SF UI Display Black';
+}
+
+.timeSlots {
     width: 100%;
 }
-.tasks{
+
+.tasks {
     width: 100%;
 }
-.timetable{
+
+.timetable {
     display: flex;
     justify-content: space-around;
-    width: 50vw;
+    width: 50rem;
 }
-.buttonsContainer{
+
+.buttonsContainer {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     width: 100%;
     font-size: 0.7rem;
 }
-.button{
+
+.button {
     margin: 0.8ch 0.5ch 0.8ch 0.5ch;
     padding: 0.5ch;
     border-radius: 1ch;
     width: 3rem;
     display: flex;
-    background-color: #ffffff;
+    background-color: #c1c9d7;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 300ms;
+}
+
+.button:hover{
+    background-color: #a5b1c2;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.headingContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+    margin-bottom: -5rem;
+    font-size: 1.3rem;
+}
+
+.headingContainer h1 {
+    display: flex;
     align-items: center;
     justify-content: center;
 }
-::-webkit-scrollbar{
-    display: none;
+
+.headingContainer h1 img {
+    height: 3rem;
+    margin-right: 1rem;
+    margin-top: 4.5px;
 }
