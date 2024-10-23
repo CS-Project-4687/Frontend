@@ -122,8 +122,8 @@ function saveTT(){
   document.querySelector('.timetableContainer').remove()
   let loading = document.createElement('div');
   loading.classList.add('timetableContainer');
-  document.getElementById("mainContainer").appendChild(loading);
   loading.innerHTML = '<img src="./assets/loading.svg">'
+  document.getElementById("mainContainer").appendChild(loading);
   fetch('http://127.0.0.1:5000/save', {
     method: 'POST',
     headers: {
@@ -133,7 +133,7 @@ function saveTT(){
   }).then(response => {return response.json()}).catch(err => console.log(err));
   loading.innerHTML = '<div id="lottie-animation" style="height: 15rem; width: auto; margin-bottom: 10rem;"></div>'
   loading.style.marginBottom = '20rem'
-  var animation = lottie.loadAnimation({
+  lottie.loadAnimation({
     container: document.getElementById('lottie-animation'),
     renderer: 'svg',
     loop: true,
