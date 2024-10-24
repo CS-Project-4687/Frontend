@@ -59,7 +59,7 @@ body {
 
 .mainContainer {
     width: 100vw;
-    height: 87vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -245,4 +245,31 @@ body {
 }
 .timetableContainer img{
     margin-top: -35rem;
+}
+
+.savedItemsButton {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 1rem;
+    border-radius: 1rem;
+}
+
+.savedItemsButton img {
+    height: 1.4rem;
+    width: auto;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 0.7rem;
+    margin-top: 0.5rem;
+    padding: 0 1ch 0 1ch;
+    transition-duration: 300ms;
+}
+
+.container:hover{
+    background-color: #a8afba
 }

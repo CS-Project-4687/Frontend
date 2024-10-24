@@ -1,28 +1,3 @@
-/*
-Blueprint: 
-<div class="timetableContainer">
-  <div class="timetableBox">
-    <div class="timetable">
-      <div class="task">
-        <div class="cell" style="margin-left: 2px;">Task</div>
-        <div id="tasks" class="tasks">
-          <div class="taskCell cell">Task 1</div>
-        </div>
-      </div>
-      <div class="timeSlot">
-        <div class="cell" style="margin-left: 2px;">Time Slot</div>
-        <div id="timeslots" class="timeslots">
-          <div class="timeSlotCell cell">9:00 - 9:30</div>
-        </div>
-      </div>
-    </div>
-    <div class="buttonsContainer">
-      <div class="discard clickable button">Discard</div>
-      <div class="save clickable button">Save</div>
-    </div>
-  </div>
-</div>
-*/
 const clickableDiv = document.querySelector('.promptBox');
 const textBox = document.getElementById('prompt');
 clickableDiv.addEventListener('click', function (event) {
@@ -34,7 +9,7 @@ let timetableData;
 function req(){
   let loading = document.createElement('div');
   loading.classList.add('timetableContainer');
-  loading.innerHTML = '<img src="./assets/loading.svg">'
+  loading.innerHTML = '<img src="./assets/loading.svg">';
   document.getElementById("mainContainer").appendChild(loading);
     fetch('http://127.0.0.1:5000/generate', {
         method: 'POST',
@@ -44,14 +19,14 @@ function req(){
         body: JSON.stringify({prompt: textBox.value})
     }).then(response => response.json()).then(data => {
         timetableData = data;
-        try{
+        try {
         document.querySelector(".timetableContainer").remove();
         } catch {
             console.log('No timetableContainer found');
-        }
+        };
         let timetableContainer = document.createElement('div');
         timetableContainer.classList.add('timetableContainer');
-        let timetable = data.result
+        let timetable = data.result;
         let timetableBox = document.createElement('div');
         timetableBox.classList.add('timetableBox');
         let timetableDiv = document.createElement('div');
@@ -70,7 +45,7 @@ function req(){
             cell.style.marginLeft = '2px';
             cell.innerHTML = timetable[i][0];
             task.appendChild(cell);
-        }
+        };
         timetableDiv.appendChild(task);
         let timeSlot = document.createElement('div');
         timeSlot.classList.add('timeSlot');
@@ -87,7 +62,7 @@ function req(){
             cell.style.marginLeft = '2px';
             cell.innerHTML = timetable[i][1];
             timeSlot.appendChild(cell);
-        }
+        };
         timetableDiv.appendChild(timeSlot);
         timetableBox.appendChild(timetableDiv);
         let buttonsContainer = document.createElement('div');
@@ -119,10 +94,10 @@ function req(){
 }
 
 function saveTT(){
-  document.querySelector('.timetableContainer').remove()
+  document.querySelector('.timetableContainer').remove();
   let loading = document.createElement('div');
   loading.classList.add('timetableContainer');
-  loading.innerHTML = '<img src="./assets/loading.svg">'
+  loading.innerHTML = '<img src="./assets/loading.svg">';
   document.getElementById("mainContainer").appendChild(loading);
   fetch('http://127.0.0.1:5000/save', {
     method: 'POST',
@@ -131,8 +106,8 @@ function saveTT(){
     },
     body: JSON.stringify({date: new Date().toDateString(), timetable: timetableData.result})
   }).then(response => {return response.json()}).catch(err => console.log(err));
-  loading.innerHTML = '<div id="lottie-animation" style="height: 15rem; width: auto; margin-bottom: 10rem;"></div>'
-  loading.style.marginBottom = '20rem'
+  loading.innerHTML = '<div id="lottie-animation" style="height: 15rem; width: auto; margin-bottom: 10rem;"></div>';
+  loading.style.marginBottom = '20rem';
   lottie.loadAnimation({
     container: document.getElementById('lottie-animation'),
     renderer: 'svg',
@@ -141,6 +116,6 @@ function saveTT(){
     path: 'https://lottie.host/ec80a6af-f622-4e3d-b20a-82dd831b7abb/HBHLDGIw59.json'
   });
   setTimeout(() => {
-    loading.remove()
-  }, 2000);
+    loading.remove();
+  }, 2500);
 }
