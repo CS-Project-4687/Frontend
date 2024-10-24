@@ -1,0 +1,112 @@
+@font-face {
+    font-family: 'SF UI Display Ultralight';
+    font-style: normal;
+    font-weight: normal;
+    src: local('SF UI Display Ultralight'), url('../assets/fonts/sf-ui-display-ultralight-58646b19bf205.woff') format('woff');
+}
+@font-face {
+    font-family: 'SF UI Display Thin';
+    font-style: normal;
+    font-weight: normal;
+    src: local('SF UI Display Thin'), url('../assets/fonts/sf-ui-display-thin-58646e9b26e8b.woff') format('woff');
+}
+@font-face {
+    font-family: 'SF UI Display Light';
+    font-style: normal;
+    font-weight: normal;
+    src: local('SF UI Display Light'), url('../assets/fonts/sf-ui-display-light-58646b33e0551.woff') format('woff');
+}
+@font-face {
+    font-family: 'SF UI Display Medium';
+    font-style: normal;
+    font-weight: normal;
+    src: local('SF UI Display Medium'), url('../assets/fonts/sf-ui-display-medium-58646be638f96.woff') format('woff');
+}
+@font-face {
+    font-family: 'SF UI Display Semibold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('SF UI Display Semibold'), url('../assets/fonts/sf-ui-display-semibold-58646eddcae92.woff') format('woff');
+}
+@font-face {
+    font-family: 'SF UI Display Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('SF UI Display Bold'), url('../assets/fonts/sf-ui-display-bold-58646a511e3d9.woff') format('woff');
+}
+@font-face {
+    font-family: 'SF UI Display Heavy';
+    font-style: normal;
+    font-weight: normal;
+    src: local('SF UI Display Heavy'), url('../assets/fonts/sf-ui-display-heavy-586470160b9e5.woff') format('woff');
+}
+@font-face {
+    font-family: 'SF UI Display Black';
+    font-style: normal;
+    font-weight: normal;
+    src: local('SF UI Display Black'), url('../assets/fonts/sf-ui-display-black-58646a6b80d5a.woff') format('woff');
+}
+
+* {
+    margin: 0;
+}
+
+.clickable:hover {
+    cursor: pointer;
+}
+
+
+body {
+    background-color: #d8dee9;
+    font-family: 'SF UI Display Black';
+}
+
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.upperNavbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.l-upperNavbar h1 {
+    margin: 1rem 0 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+}
+
+.l-upperNavbar h1 img {
+    height: 2.5rem;
+    width: auto;
+    margin-right: 0.5ch;
+}
+
+.r-upperNavbar h1 {
+    margin: 1rem 1rem 0 0;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+}
+
+.savedTimetables-Container {
+    margin-top: 3rem;
+}
+
+.timetableElement {
+    margin: 0 1rem 1rem 1rem;
+    background-color: #eceff4;
+    padding: 1.5rem 1rem 1.5rem 1rem;
+    border-radius: 0.7rem;
+    transition-duration: 300ms;
+    display: flex;
+    align-items: center;
+}
+
+.timetableElement:hover {
+    background-color: #e5e9f0;
+    box-shadow: 0 0 0.5rem 0.1rem #cdcdcd;
+}
