@@ -51,7 +51,7 @@
     margin: 0;
 }
 
-.clickable {
+.clickable:hover {
     cursor: pointer;
 }
 
@@ -92,21 +92,68 @@ body {
     justify-self: center;
 }
 
-.savedTimetables-Container {
-    margin-top: 3rem;
-}
-
-.timetableElement {
-    margin: 0 1rem 1rem 1rem;
-    background-color: #eceff4;
-    padding: 1.5rem 1rem 1.5rem 1rem;
-    border-radius: 0.7rem;
-    transition-duration: 300ms;
+.timetableContainer {
+    width: 100%;
     display: flex;
+    justify-content: center;
     align-items: center;
+    animation-name: entry;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
 }
 
-.timetableElement:hover {
-    background-color: #e5e9f0;
-    box-shadow: 0 0 0.5rem 0.1rem #cdcdcd;
+.timetableBox {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    width: 60rem;
+    height: auto;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: #eceff4;
+    padding-bottom: 0;
+    margin-bottom: 1rem;
+    margin-top: 5rem;
+}
+
+.task {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.timeSlot {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cell {
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #4c4f69;
+    font-family: 'SF UI Display Medium';
+}
+.titleCell{
+    font-family: 'SF UI Display Black';
+}
+
+.timeslots {
+    width: 100%;
+}
+
+.tasks {
+    width: 100%;
+}
+
+.timetable {
+    display: flex;
+    justify-content: space-around;
+    width: 60rem;
+    margin-bottom: 1rem;
 }
